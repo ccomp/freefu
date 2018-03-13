@@ -11,13 +11,27 @@
 				<key>imageName</key>
 				<string>open-mic.jpg</string>
 				<key>description</key>
-				<string>Open to everyone, hope to see you there!!</string>
+				<string>Open to everyone, hope to see you there!! Comedy open mic nights can be held at established comedy clubs, but are more commonly held at other venues with or without a stage, often the upstairs or back room of a pub or bar. Such nights give newer or emerging comedians an opportunity to practice and improve, with a view to getting paid work in the future.</string>
 				<key>date</key>
 				<string>Friday, March 2</string>
 				<key>time</key>
 				<string>5:30 PM - 8 PM</string>
 				<key>location</key>
 				<string>1669 Euclid Avenue, University Memorial Center, 80309 Boulder, CO</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Maureen Riesco March/April Art Show</string>
+				<key>imageName</key>
+				<string>art-gallery.png</string>
+				<key>description</key>
+				<string>Artwork by contemporary oil painter, Maureen Riesco, featuring western animals surrounded by expansive sky’s or paint splashed color fields, is on display and for sale at Creative Framing Art Gallery on Main St. in Louisville from March 2nd – April 28th. Other featured artists in this exhibit are: Kimiko Miyakawa, Dave Kennedy and Vera Berv. Meet the artists, enjoy appetizers, wine and live music at the opening Reception on Friday, March 2nd from 6 to 9pm.</string>
+				<key>date</key>
+				<string>Friday, March 2</string>
+				<key>time</key>
+				<string>6 to 9pm</string>
+				<key>location</key>
+				<string>916 Main Street Louisville, CO</string>
 			</dict>
 		</array>
 	</dict>
@@ -38,6 +52,21 @@
 				<key>location</key>
 				<string>1200 Canyon Blvd Boulder, CO</string>
 			</dict>
+			<dict>
+				<key>name</key>
+				<string>Creatively using Alexa to support accessibility</string>
+				<key>imageName</key>
+				<string>alexa.jpg</string>
+				<key>description</key>
+				<string>Matt Reynolds, a senior Computer Engineer at Charter Communications, has been working in coordination with the Accessibility Team there for the past 6 months. When The Paciello Group sent trainers (including our Meetup&apos;s Justin Stockton) to Charter to teach them the find points of using JAWS screen reader Matt had a brilliant idea to program Alexa to remember all the key combos JAWS uses and feed them back upon request.
+This project now exists as open source on Github. Matt and his colleague, Justin DeGonda, will walk us through how to use this Alexa skill to support JAWS usage. You will be able to refer to the code and know how to contribute to this project.</string>
+				<key>date</key>
+				<string>Monday, March 12, 2018</string>
+				<key>time</key>
+				<string>6:00 PM</string>
+				<key>location</key>
+				<string>Boulder Digital Arts, 1600 Range Street, Boulder, CO</string>
+			</dict>
 		</array>
 	</dict>
 	<dict>
@@ -45,17 +74,32 @@
 		<array>
 			<dict>
 				<key>name</key>
-				<string>Amazing Scavenger Hunt</string>
+				<string>Boulder Small Dog Play Group</string>
 				<key>imageName</key>
-				<string>scavenger-hunt.png</string>
+				<string>small-dogs.png</string>
 				<key>description</key>
-				<string>Turn Boulder into a giant game board with this fun scavenger hunt adventure. Combine the excitement of the Amazing Race with a three-hour city tour. Guided from any smart phone, teams make their way among well known and overlooked gems of the city, solving clues and completing challenges while learning local history. </string>
+				<string>It can be hard to find a safe place for little dogs to socialize and have fun. That&apos;s why we started this group! Our meet up group is dedicated to small breed dogs &quot;palling around&quot; with each other. This group will be meeting at the Boulder Foothills Small Dog Park, offering a .5 acre fenced park environment with a permanent shade shelter, benches and running water. Join us for some fun!</string>
 				<key>date</key>
-				<string>Monday, March 12, 2018</string>
+				<string>Tuesday, March 13, 2018</string>
 				<key>time</key>
-				<string>10:00 am</string>
+				<string>1:30 PM</string>
 				<key>location</key>
-				<string>1200 Canyon Blvd Boulder, CO</string>
+				<string>800 Cherry Ave, Boulder, CO 80304</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Puppy Playtime! (8weeks-6months)</string>
+				<key>imageName</key>
+				<string>puppies.jpeg</string>
+				<key>description</key>
+				<string>Give your puppy a chance to socialize and make friends at Puppy Playtime!
+Every Sunday at 1pm This event is for puppies 8 weeks-6 months old.</string>
+				<key>date</key>
+				<string>Sunday, March 18, 2018</string>
+				<key>time</key>
+				<string>1:00 PM to 1:30 PM</string>
+				<key>location</key>
+				<string>3705 East Colfax, Denver, CO</string>
 			</dict>
 		</array>
 	</dict>

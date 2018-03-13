@@ -1,5 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<array/>
+<array>
+	<dict>
+		<key>allFood</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>Boulder Food Rescue</string>
+				<key>imageName</key>
+				<string>food-rescue.png</string>
+				<key>description</key>
+				<string>Boulder Food Rescue works to create a more just and less wasteful food system. We do this through the sustainable redistribution of healthy food to low-income communities while educating each other about food justice.</string>
+				<key>date</key>
+				<string>Friday, March 16</string>
+				<key>time</key>
+				<string>5 - 6 PM</string>
+				<key>location</key>
+				<string>St John’s Episcopal Church, 1419 Pine St., Boulder, CO</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Colorado Friendship</string>
+				<key>imageName</key>
+				<string>soup-kitchen.jpg</string>
+				<key>description</key>
+				<string>In one of the wealthiest counties in America, many are in need of the most basic necessities. Colorado FriendShip delivers food and clothing to those who need it most -- low-income and poverty-stricken children and families, and the homeless and indigent in Boulder County.</string>
+				<key>date</key>
+				<string>Sunday, March 18</string>
+				<key>time</key>
+				<string>5 PM</string>
+				<key>location</key>
+				<string>1777 6th St, Boulder, CO 80302</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>vegetarianFood</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>Harvest of Hope</string>
+				<key>imageName</key>
+				<string>other-soup.jpeg</string>
+				<key>description</key>
+				<string>Our sole mission is food assistance. We offer a client choice shopping experience where individuals select preferred foods within our shopping allowances.</string>
+				<key>date</key>
+				<string>Daily</string>
+				<key>time</key>
+				<string>1 – 3pm</string>
+				<key>location</key>
+				<string>2960 Valmont Road, Boulder, CO</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Emergency Family Assistance Association</string>
+				<key>imageName</key>
+				<string>family-soup.jpg</string>
+				<key>description</key>
+				<string>EFAA helps those in our community whose immediate needs for food, shelter and other basic necessities cannot be adequately met by other means, and supports their efforts toward financial stability or self-sufficiency.</string>
+				<key>date</key>
+				<string>Daily</string>
+				<key>time</key>
+				<string>9 AM – 4PM</string>
+				<key>location</key>
+				<string>1575 Yarmouth Ave, Boulder, CO</string>
+			</dict>
+		</array>
+	</dict>
+</array>
 </plist>

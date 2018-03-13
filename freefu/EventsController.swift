@@ -44,6 +44,7 @@ class EventsController: UITableViewController {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged), name:  Notification.Name("UIDeviceOrientationDidChangeNotification"), object: nil)
         let coloredView = colorView()
         coloredView.setGradientBackground(colorOne: UIColor(red:0.11, green:0.19, blue:0.59, alpha:1.0), colorTwo: UIColor(red:0.76, green:0.25, blue:0.84, alpha:1.0))
         coloredView.frame = tableView.bounds
@@ -56,7 +57,6 @@ class EventsController: UITableViewController {
         let backgroundView = UIView(frame: self.tableView.bounds)
         backgroundView.layer.insertSublayer(gradientLayer, at: 0)
         self.tableView.backgroundView = backgroundView
-        self.navigationItem.title = "Freefu events"
         
         if let pathURL = Bundle.main.url(forResource: "eventsList", withExtension: "plist") {
             do {
@@ -67,6 +67,43 @@ class EventsController: UITableViewController {
             }
         }
         switchTables()
+    }
+    
+    @objc func orientationChanged() {
+        
+        if(UIDeviceOrientationIsLandscape(UIDevice.current.orientation)){
+            
+            print("landscape")
+        }
+        
+        if(UIDeviceOrientationIsPortrait(UIDevice.current.orientation)){
+            
+            print("Portrait")
+        }
+        self.view.frame = UIScreen.main.bounds
+        self.view.layoutIfNeeded()
+        self.tableView.reloadData()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.tableView.bounds
+        gradientLayer.colors = [UIColor(red:0.11, green:0.19, blue:0.59, alpha:1.0).cgColor, UIColor(red:0.76, green:0.25, blue:0.84, alpha:1.0).cgColor]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.startPoint = CGPoint(x: 0.7, y:1.0)
+        gradientLayer.endPoint = CGPoint(x: 0.4, y:0.0)
+        let backgroundView = UIView(frame: self.tableView.bounds)
+        backgroundView.layer.insertSublayer(gradientLayer, at: 0)
+        self.tableView.backgroundView = backgroundView
+        self.view.frame = UIScreen.main.bounds
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.view.frame = UIScreen.main.bounds
+        self.view.layoutIfNeeded()
+//        self.tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {

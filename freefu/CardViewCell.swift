@@ -18,6 +18,7 @@ class CardViewCell: UITableViewCell {
     
     @IBOutlet weak var CellDescription: UITextView!
     
+    @IBOutlet weak var CellDimmerView: UIView!
     
     @IBOutlet weak var CellView: UIView!
     
@@ -31,8 +32,6 @@ class CardViewCell: UITableViewCell {
     @IBInspectable var shadowOffsetHeight: Int = 1
     @IBInspectable var shadowColor: UIColor? = UIColor.white
     @IBInspectable var shadowOpacity: Float = 0.5
-    var newView: UIView? = nil
-    @IBInspectable var layers: Int = 0
     
     override func layoutSubviews() {
         CellView.backgroundColor = UIColor.clear
@@ -41,13 +40,7 @@ class CardViewCell: UITableViewCell {
         self.CellView.bringSubview(toFront: self.CellLocation)
         self.CellView.bringSubview(toFront: self.CellTime)
         self.CellView.bringSubview(toFront: self.CellDescription)
-        if (self.layers == 0) {
-            let newFrame : CGRect = self.frame
-            newView = UIView(frame: newFrame)
-            newView?.backgroundColor = UIColor.darkGray.withAlphaComponent(0.75)
-            self.CellView.insertSubview(newView!, belowSubview: self.CellLabel)
-            self.layers += 1
-        }
+        
 //        layer.cornerRadius = cornerRadius
 //        layer.backgroundColor = shadowColor?.cgColor
 //        let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
