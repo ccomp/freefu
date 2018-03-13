@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6249F93D2056282F0074A145 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6249F93C2056282F0074A145 /* MapKit.framework */; };
+		6249F93F205628760074A145 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6249F93E205628760074A145 /* CoreLocation.framework */; };
+		6249F94320562EFB0074A145 /* eventsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6249F94220562EFB0074A145 /* eventsList.plist */; };
+		6249F94520562F0C0074A145 /* foodList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6249F94420562F0C0074A145 /* foodList.plist */; };
 		6CB3787B202FC213007BD047 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3787A202FC213007BD047 /* AppDelegate.swift */; };
 		6CB3787D202FC213007BD047 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3787C202FC213007BD047 /* ViewController.swift */; };
 		6CB37880202FC213007BD047 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3787E202FC213007BD047 /* Main.storyboard */; };
@@ -41,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6249F93C2056282F0074A145 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6249F93E205628760074A145 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6249F94220562EFB0074A145 /* eventsList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = eventsList.plist; sourceTree = "<group>"; };
+		6249F94420562F0C0074A145 /* foodList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = foodList.plist; sourceTree = "<group>"; };
 		6CB37877202FC213007BD047 /* freefu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = freefu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB3787A202FC213007BD047 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CB3787C202FC213007BD047 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6249F93F205628760074A145 /* CoreLocation.framework in Frameworks */,
+				6249F93D2056282F0074A145 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6249F93B2056282F0074A145 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6249F93E205628760074A145 /* CoreLocation.framework */,
+				6249F93C2056282F0074A145 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6CB3786E202FC213007BD047 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +114,7 @@
 				6CB3788E202FC213007BD047 /* freefuTests */,
 				6CB37899202FC213007BD047 /* freefuUITests */,
 				6CB37878202FC213007BD047 /* Products */,
+				6249F93B2056282F0074A145 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +144,8 @@
 				6CB378B420309163007BD047 /* FoodController.swift */,
 				6CB378B620309B77007BD047 /* CardViewCell.swift */,
 				6CB378B82030AC9C007BD047 /* colorView.swift */,
+				6249F94220562EFB0074A145 /* eventsList.plist */,
+				6249F94420562F0C0074A145 /* foodList.plist */,
 			);
 			path = freefu;
 			sourceTree = "<group>";
@@ -215,6 +237,11 @@
 					6CB37876202FC213007BD047 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					6CB3788A202FC213007BD047 = {
 						CreatedOnToolsVersion = 9.2;
@@ -254,8 +281,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CB378AB203019B0007BD047 /* Raleway in Resources */,
+				6249F94320562EFB0074A145 /* eventsList.plist in Resources */,
 				6CB37885202FC213007BD047 /* LaunchScreen.storyboard in Resources */,
 				6CB37882202FC213007BD047 /* Assets.xcassets in Resources */,
+				6249F94520562F0C0074A145 /* foodList.plist in Resources */,
 				6CB37880202FC213007BD047 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>spectatorItems</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string></string>
+				<key>imageName</key>
+				<string></string>
+				<key>description</key>
+				<string></string>
+				<key>date</key>
+				<string></string>
+				<key>time</key>
+				<string></string>
+				<key>location</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>socialItems</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>Amazing Scavenger Hunt</string>
+				<key>imageName</key>
+				<string>scavenger-hunt.jpg</string>
+				<key>description</key>
+				<string>Turn Boulder into a giant game board with this fun scavenger hunt adventure. Combine the excitement of the Amazing Race with a three-hour city tour. Guided from any smart phone, teams make their way among well known and overlooked gems of the city, solving clues and completing challenges while learning local history. alskdfjalsdjflkasjfaowejfoiawjefoicaewocfhwaeiuchlraeufhcliuwehfcliuehwfcliuehwfcliuehliuewhfcliuwehfcliuwhfcw</string>
+				<key>date</key>
+				<string>Monday, March 12, 2018</string>
+				<key>time</key>
+				<string>10:00 am</string>
+				<key>location</key>
+				<string>1200 Canyon Blvd Boulder, CO</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>petItems</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>Amazing Scavenger Hunt</string>
+				<key>imageName</key>
+				<string>scavenger-hunt.png</string>
+				<key>description</key>
+				<string>Turn Boulder into a giant game board with this fun scavenger hunt adventure. Combine the excitement of the Amazing Race with a three-hour city tour. Guided from any smart phone, teams make their way among well known and overlooked gems of the city, solving clues and completing challenges while learning local history. </string>
+				<key>date</key>
+				<string>Monday, March 12, 2018</string>
+				<key>time</key>
+				<string>10:00 am</string>
+				<key>location</key>
+				<string>1200 Canyon Blvd Boulder, CO</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

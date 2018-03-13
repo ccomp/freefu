@@ -7,28 +7,98 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class EventsController: UITableViewController {
+    
+    var events = [[String: String]]()
+    var topLevel = [[String: Array<Dictionary<String, String>>]]()
 
+    @IBAction func expandEvent(_ sender: UITapGestureRecognizer) {
+        let address = "1 Infinite Loop, Cupertino, CA 95014"
+        
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address) { (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let location = placemarks.first?.location
+                else {
+                    // handle no location found
+                    print("location not found")
+                    return
+            }
+            let regionDistance:CLLocationDistance = 10000
+            let regionSpan = MKCoordinateRegionMakeWithDistance(location.coordinate, regionDistance, regionDistance)
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+            ]
+            let placemark = MKPlacemark(coordinate: location.coordinate, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = "Place Name"
+            mapItem.openInMaps(launchOptions: options)
+            // Use your location
+        }
+    }
+    @IBOutlet weak var selectedEventFilter: UISegmentedControl!
+    
+    @IBAction func changeSelectedFilter(_ sender: UISegmentedControl) {
+    }
+    
+    func switchTables() {
+        if (selectedEventFilter.selectedSegmentIndex == 0) {
+            for entry in topLevel {
+                for (key, value) in entry {
+                    if (key == "socialItems") {
+                        events = value
+                    }
+                }
+            }
+        }
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         let coloredView = colorView()
         coloredView.setGradientBackground(colorOne: UIColor(red:0.11, green:0.19, blue:0.59, alpha:1.0), colorTwo: UIColor(red:0.76, green:0.25, blue:0.84, alpha:1.0))
-        self.tableView.backgroundView = coloredView
-//        self.tableView.backgroundView.setGradientBackground(colorOne: UIColor(red:0.11, green:0.19, blue:0.59, alpha:1.0), colorTwo: UIColor(red:0.76, green:0.25, blue:0.84, alpha:1.0))
-//        setGradientBackground(colorOne: UIColor(red:0.11, green:0.19, blue:0.59, alpha:1.0), colorTwo: UIColor(red:0.76, green:0.25, blue:0.84, alpha:1.0))
-        // Do any additional setup after loading the view.
+        coloredView.frame = tableView.bounds
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.tableView.bounds
+        gradientLayer.colors = [UIColor(red:0.11, green:0.19, blue:0.59, alpha:1.0).cgColor, UIColor(red:0.76, green:0.25, blue:0.84, alpha:1.0).cgColor]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.startPoint = CGPoint(x: 0.7, y:1.0)
+        gradientLayer.endPoint = CGPoint(x: 0.4, y:0.0)
+        let backgroundView = UIView(frame: self.tableView.bounds)
+        backgroundView.layer.insertSublayer(gradientLayer, at: 0)
+        self.tableView.backgroundView = backgroundView
+        self.navigationItem.title = "Freefu events"
+        
+        if let pathURL = Bundle.main.url(forResource: "eventsList", withExtension: "plist") {
+            do {
+                let data = try Data(contentsOf: pathURL)
+                topLevel = (try PropertyListSerialization.propertyList(from: data, options: PropertyListSerialization.ReadOptions.mutableContainers, format: nil)) as! [Dictionary<String, Array>]
+            } catch {
+                print(error)
+            }
+        }
+        switchTables()
+//        print(topLevel)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print(self.tableView.backgroundView)
 //        var coloredView = self.tableView.backgroundView as! colorView
 //        coloredView.setGradientBackground(colorOne: UIColor(red:0.11, green:0.19, blue:0.59, alpha:1.0), colorTwo: UIColor(red:0.76, green:0.25, blue:0.84, alpha:1.0))
 //        self.tableView.backgroundView = coloredView
     }
+    
+//    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//        cell.backgroundColor = UIColor.clear
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -67,14 +137,22 @@ class EventsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return events.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! CardViewCell
-        cell.CellLabel?.text = "Label"
-        print(cell.CellLabel?.text)
-        cell.CellImageView?.image = UIImage(named: "318x181")
+        cell.CellLabel?.text = events[indexPath.row]["name"]
+        cell.CellLabel.textColor = UIColor.white
+        cell.CellLabel.alpha = 1.0
+        cell.CellImageView?.image = UIImage(named: events[indexPath.row]["imageName"]!)
+        cell.backgroundColor = UIColor.clear
+        cell.CellDescription.text = events[indexPath.row]["description"]
+        cell.CellLocation.text = events[indexPath.row]["location"]
+        cell.CellTime.text = events[indexPath.row]["date"]! + "\n" + events[indexPath.row]["time"]!
+        cell.CellDescription.isUserInteractionEnabled = true
+        cell.CellDescription.showsVerticalScrollIndicator = true
+        cell.CellDescription.isScrollEnabled = true
         return cell
     }
 
