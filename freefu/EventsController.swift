@@ -15,44 +15,25 @@ class EventsController: UITableViewController {
     var events = [[String: String]]()
     var topLevel = [[String: Array<Dictionary<String, String>>]]()
 
-    @IBAction func expandEvent(_ sender: UITapGestureRecognizer) {
-        let address = "1 Infinite Loop, Cupertino, CA 95014"
-        
-        let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(address) { (placemarks, error) in
-            guard
-                let placemarks = placemarks,
-                let location = placemarks.first?.location
-                else {
-                    // handle no location found
-                    print("location not found")
-                    return
-            }
-            let regionDistance:CLLocationDistance = 10000
-            let regionSpan = MKCoordinateRegionMakeWithDistance(location.coordinate, regionDistance, regionDistance)
-            let options = [
-                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-            ]
-            let placemark = MKPlacemark(coordinate: location.coordinate, addressDictionary: nil)
-            let mapItem = MKMapItem(placemark: placemark)
-            mapItem.name = "Place Name"
-            mapItem.openInMaps(launchOptions: options)
-            // Use your location
-        }
-    }
     @IBOutlet weak var selectedEventFilter: UISegmentedControl!
     
     @IBAction func changeSelectedFilter(_ sender: UISegmentedControl) {
+        switchTables()
     }
     
     func switchTables() {
+        var keyQuery = "none"
         if (selectedEventFilter.selectedSegmentIndex == 0) {
-            for entry in topLevel {
-                for (key, value) in entry {
-                    if (key == "socialItems") {
-                        events = value
-                    }
+            keyQuery = "spectatorItems"
+        } else if (selectedEventFilter.selectedSegmentIndex == 1) {
+            keyQuery = "socialItems"
+        } else {
+            keyQuery = "petItems"
+        }
+        for entry in topLevel {
+            for (key, value) in entry {
+                if (key == keyQuery) {
+                    events = value
                 }
             }
         }
@@ -86,7 +67,6 @@ class EventsController: UITableViewController {
             }
         }
         switchTables()
-//        print(topLevel)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -155,6 +135,34 @@ class EventsController: UITableViewController {
         cell.CellDescription.isScrollEnabled = true
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let address = events[indexPath.row]["location"]
+        
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address!) { (placemarks, error) in
+            guard
+                let placemarks = placemarks,
+                let location = placemarks.first?.location
+                else {
+                    // handle no location found
+                    print("location not found")
+                    return
+            }
+            let regionDistance:CLLocationDistance = 10000
+            let regionSpan = MKCoordinateRegionMakeWithDistance(location.coordinate, regionDistance, regionDistance)
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+            ]
+            let placemark = MKPlacemark(coordinate: location.coordinate, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = self.events[indexPath.row]["name"]
+            mapItem.openInMaps(launchOptions: options)
+            // Use your location
+        }
+    }
+    
 
     /*
      Override to support conditional editing of the table view.

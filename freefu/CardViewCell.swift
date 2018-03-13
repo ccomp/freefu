@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class CardViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var CellImageView: UIImageView!
     
     @IBOutlet weak var CellLabel: UILabel!
@@ -29,6 +31,8 @@ class CardViewCell: UITableViewCell {
     @IBInspectable var shadowOffsetHeight: Int = 1
     @IBInspectable var shadowColor: UIColor? = UIColor.white
     @IBInspectable var shadowOpacity: Float = 0.5
+    var newView: UIView? = nil
+    @IBInspectable var layers: Int = 0
     
     override func layoutSubviews() {
         CellView.backgroundColor = UIColor.clear
@@ -37,19 +41,13 @@ class CardViewCell: UITableViewCell {
         self.CellView.bringSubview(toFront: self.CellLocation)
         self.CellView.bringSubview(toFront: self.CellTime)
         self.CellView.bringSubview(toFront: self.CellDescription)
-//        CellImageView.backgroundColor = UIColor.darkGray
-        let newFrame : CGRect = self.frame
-        let newView : UIView = UIView(frame: newFrame)
-//        newView.isUserInteractionEnabled = false
-        newView.backgroundColor = UIColor.darkGray.withAlphaComponent(0.5)
-//        newView.alpha = 0.5
-        self.CellView.insertSubview(newView, belowSubview: self.CellLabel)
-//        self.sendSubview(toBack: newView)
-//        self.sendSubview(toBack: CellImageView)
-        
-//        self.bringSubview(toFront: CellLabel)
-//        self.bringSubview(toFront: CellLocation)
-        
+        if (self.layers == 0) {
+            let newFrame : CGRect = self.frame
+            newView = UIView(frame: newFrame)
+            newView?.backgroundColor = UIColor.darkGray.withAlphaComponent(0.75)
+            self.CellView.insertSubview(newView!, belowSubview: self.CellLabel)
+            self.layers += 1
+        }
 //        layer.cornerRadius = cornerRadius
 //        layer.backgroundColor = shadowColor?.cgColor
 //        let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
@@ -61,6 +59,10 @@ class CardViewCell: UITableViewCell {
 //        layer.shadowPath = shadowPath.cgPath
     }
     
+//    override func willTransition(to state: UITableViewCellStateMask) {
+//        self.newView?.removeFromSuperview()
+//    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -68,7 +70,6 @@ class CardViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 

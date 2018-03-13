@@ -7,17 +7,17 @@
 		<array>
 			<dict>
 				<key>name</key>
-				<string></string>
+				<string>Open Mic!</string>
 				<key>imageName</key>
-				<string></string>
+				<string>open-mic.jpg</string>
 				<key>description</key>
-				<string></string>
+				<string>Open to everyone, hope to see you there!!</string>
 				<key>date</key>
-				<string></string>
+				<string>Friday, March 2</string>
 				<key>time</key>
-				<string></string>
+				<string>5:30 PM - 8 PM</string>
 				<key>location</key>
-				<string></string>
+				<string>1669 Euclid Avenue, University Memorial Center, 80309 Boulder, CO</string>
 			</dict>
 		</array>
 	</dict>
@@ -30,7 +30,7 @@
 				<key>imageName</key>
 				<string>scavenger-hunt.jpg</string>
 				<key>description</key>
-				<string>Turn Boulder into a giant game board with this fun scavenger hunt adventure. Combine the excitement of the Amazing Race with a three-hour city tour. Guided from any smart phone, teams make their way among well known and overlooked gems of the city, solving clues and completing challenges while learning local history. alskdfjalsdjflkasjfaowejfoiawjefoicaewocfhwaeiuchlraeufhcliuwehfcliuehwfcliuehwfcliuehliuewhfcliuwehfcliuwhfcw</string>
+				<string>Turn Boulder into a giant game board with this fun scavenger hunt adventure. Combine the excitement of the Amazing Race with a three-hour city tour. Guided from any smart phone, teams make their way among well known and overlooked gems of the city, solving clues and completing challenges while learning local history.</string>
 				<key>date</key>
 				<string>Monday, March 12, 2018</string>
 				<key>time</key>
